@@ -15,14 +15,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects =>   { "blog_post_topic": "Baseball", "blog_post_date": "5/25/2022", "blog_post_time": "19:00", "blog_post_venue": "East Side Park", "contributor_id": 2 },
+  // expects =>   { "blog_post_topic": "Baseball", "blog_post_date": "5/25/2022", "blog_post_time": "19:00", "blog_post_blogText": "East Side Park", "contributor_id": 2 },
   console.log(req.body);
   Blog_Post.create({
     blog_post_title: req.body.title,
     blog_post_topic: req.body.type,
     blog_post_date: req.body.date,
     blog_post_time: req.body.time,
-    blog_post_venue: req.body.venue,
+    blog_post_blogText: req.body.blogText,
     contributor_id: req.session.contributor_id,
   })
     .then(dbBlog_PostData => res.json(dbBlog_PostData))

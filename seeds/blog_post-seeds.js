@@ -6,7 +6,7 @@ const blog_postdata = [
     blog_post_topic: "Basketball",
     blog_post_date: "2022-09-05",
     blog_post_time: "12:00",
-    blog_post_venue: "Thompkins Square Park",
+    blog_post_blogText: "Thompkins Square Park",
     contributor_id: 1
   },
   {
@@ -14,7 +14,7 @@ const blog_postdata = [
     blog_post_topic: "Basketball",
     blog_post_date: "2022-04-08",
     blog_post_time: "16:00",
-    blog_post_venue: "Central Park",
+    blog_post_blogText: "Central Park",
     contributor_id: 4
   },
   {
@@ -22,7 +22,7 @@ const blog_postdata = [
     blog_post_topic: "Softball",
     blog_post_date: "2022-07-12",
     blog_post_time: "19:00",
-    blog_post_venue: "Buddy Keaton Field",
+    blog_post_blogText: "Buddy Keaton Field",
     contributor_id: 3
   },
   {
@@ -30,7 +30,7 @@ const blog_postdata = [
     blog_post_topic: "Flag Football",
     blog_post_date: "2022-04-15",
     blog_post_time: "20:30",
-    blog_post_venue: "Randalls Island",
+    blog_post_blogText: "Randalls Island",
     contributor_id: 2
   },
   {
@@ -38,7 +38,7 @@ const blog_postdata = [
     blog_post_topic: "Basketball",
     blog_post_date: "2022-02-18",
     blog_post_time: "18:00",
-    blog_post_venue: "W 4th Street",
+    blog_post_blogText: "W 4th Street",
     contributor_id: 5
   },
   {
@@ -46,7 +46,7 @@ const blog_postdata = [
     blog_post_topic: "Softball",
     blog_post_date: "2022-04-20",
     blog_post_time: "11:00",
-    blog_post_venue: "Central Park",
+    blog_post_blogText: "Central Park",
     contributor_id: 6
   },
 ];

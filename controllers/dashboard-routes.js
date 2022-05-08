@@ -12,7 +12,7 @@ router.get('/', withAuth, (req, res) => {
           'blog_post_topic',
           'blog_post_date',
           'blog_post_time',
-          'blog_post_venue',
+          'blog_post_blogText',
           [sequelize.literal('(SELECT COUNT(*) FROM upvote WHERE blog_post.id = upvote.blog_post_id)'), 'upvote_count']
         ]
       })

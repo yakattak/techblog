@@ -5,7 +5,7 @@ async function newFormHandler(event) {
     const type = document.querySelector('#blog_post-type').value;
     const date = document.querySelector('#blog_post-date').value;
     const time = document.querySelector('#blog_post-time').value;
-    const venue = document.querySelector('#blog_post-venue').value;
+    const blogText = document.querySelector('#blog_post-blogText').value;
 
 
 // CODE TO CHANGE THE DATE FORMAT, STILL WORK IN PROGRESS
@@ -27,7 +27,7 @@ async function newFormHandler(event) {
             type,
             date,
             time,
-            venue
+            blogText
         }),
         headers: { 'Content-Type': 'application/json' }
     });
