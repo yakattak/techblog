@@ -1,0 +1,21 @@
+<div class="col s12 m4 l3 blog_post-card">
+<article class="">
+    <div class="blog_post-title">{{blog_post_title}}</div>
+    <div class="">
+        Blog_Post Type: {{blog_post_type}}
+        <br>
+        Blog_Post Date: {{blog_post_date}}
+        <br>
+        Blog_Post Time: {{blog_post_time}}
+        <br>
+        Location: {{blog_post_venue}}
+        <br>
+        There are {{attend_count}} players showing up
+        <br>
+        <button type="button" class="attend-btn" onclick="attendClickHandler(event)">Attend Blog_Post <span class="id-span" id="blog_post-id-{{id}}" data-id="{{id}}">{{id}}</span></button>
+        {{!-- Post created by {{player.username}} on {{format_date created_at}} --}}
+        {{!-- <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a> --}}
+        <script src="/javascripts/attend.js"></script>
+    </div>
+</article>
+</div>

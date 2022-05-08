@@ -1,0 +1,47 @@
+<section>
+  <h2 class="user-h2">Create New Blog_Post</h2>
+
+  <form class="new-blog_post-form">
+    <div>
+      <label class="blog_post-title" for="blog_post-title">Title</label>
+      <input type="text" id="blog_post-title" name="blog_post-title" />
+    </div>
+    <div>
+      <label class="blog_post-type" for="blog_post-type">Type</label>
+      <input type="text" id="blog_post-type" name="blog_post-type" />
+    </div>
+    <div>
+      <label class="blog_post-date" for="blog_post-date">Date</label>
+      <input id="blog_post-date" type="date" name="blog_post-date" />
+
+      {{!-- This is part of the date format work in progress --}}
+      {{!-- <input type="date" data-date="" data-date-format="MM/DD/YYYY"> --}}
+    </div>
+    <div>
+      <label class="blog_post-time" for="blog_post-time">Time</label>
+      <input id="blog_post-time" type="time" min="00:00" max="24:00" name="blog_post-time" />
+    </div>
+    <div>
+      <label class="blog_post-venue" for="blog_post-venue">Location</label>
+      <input type="text" id="blog_post-venue" name="blog_post-venue" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
+
+<section>
+  <h2 class="posted-blog_posts">Your Posted Blog_Posts</h2>
+  <ol class="user-blog_posts">
+    <div class="row">
+    {{#each posts as |blog_post|}}
+    <li>
+      {{> blog_post-info blog_post}}
+      {{!-- <a href="/dashboard/edit/{{blog_post.id}}" class="edit-link">Edit post</a> --}}
+    </li>
+    </div>
+    {{/each}}
+  </ol>
+</section>
+
+<script src="/javascripts/add-blog_post.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
