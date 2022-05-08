@@ -11,7 +11,7 @@
   * [Repository](#repository)
   
   ## [Description](#table-of-contents)
-  Post-Up is an app that lets users see local pick up athletic blog_posts and decide if they are going to attend. Attendance is recorded and other users can see how many people are showing up. 
+  Post-Up is an app that lets users see local pick up athletic blog_posts and decide if they are going to upvote. Upvoteance is recorded and other users can see how many people are showing up. 
 
   The project can be found at the following link: [Heroku Link](https://guarded-waters-75502.herokuapp.com/)
 

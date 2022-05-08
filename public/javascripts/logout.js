@@ -1,6 +1,6 @@
 async function logoutHandler(event) {
     event.preventDefault();
-    console.log('player logged out');
+    console.log('contributor logged out');
     const response = await fetch(`/api/users/logout`, {
         method: 'POST'
     })

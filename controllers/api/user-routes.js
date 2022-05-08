@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Player, Blog_Post } = require('../../models');
+const { Contributor, Blog_Post } = require('../../models');
 
 // router.post('/login', (req, res) => {
 //     console.log(req.body);
@@ -11,9 +11,9 @@ const { Player, Blog_Post } = require('../../models');
 //     res.json('signup info');
 // });
 
-// get all Players
+// get all Contributors
 router.get('/', (req, res) => {
-  Player.findAll({
+  Contributor.findAll({
     attributes: { exclude: ['password'] }
   })
     .then(dbUserData => res.json(dbUserData))
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Player.findOne({
+  Contributor.findOne({
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
@@ -65,18 +65,18 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // expects {"username": "Lernantino", "email": "lernantino@gmail.com", "password": "password1234"}
-  Player.create({
+  Contributor.create({
     username: req.body.username,
     email: req.body.email,
     password: req.body.password
   })
-    .then(dbPlayerData => {
+    .then(dbContributorData => {
       req.session.save(() => {
-        req.session.player_id = dbPlayerData.id;
-        req.session.username = dbPlayerData.username;
+        req.session.contributor_id = dbContributorData.id;
+        req.session.username = dbContributorData.username;
         req.session.loggedIn = true;
   
-        res.json(dbPlayerData);
+        res.json(dbContributorData);
       });
     })
     .catch(err => {
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
 
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-  Player.findOne({
+  Contributor.findOne({
     where: {
       email: req.body.email
     }
@@ -105,11 +105,11 @@ router.post('/login', (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.player_id = dbUserData.id;
+      req.session.contributor_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
   
-      res.json({ Player: dbUserData, message: 'You are now logged in!' });
+      res.json({ Contributor: dbUserData, message: 'You are now logged in!' });
     });
   });
 });

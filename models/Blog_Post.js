@@ -3,9 +3,9 @@ const sequelize = require('../config/connection');
 
 // create our Post model
 class Blog_Post extends Model {
-        static attend(body, models) {
-          return models.Attend.create({
-            player_id: body.player_id,
+        static upvote(body, models) {
+          return models.Upvote.create({
+            contributor_id: body.contributor_id,
             blog_post_id: body.blog_post
         })
         .then(() => {
@@ -21,18 +21,18 @@ class Blog_Post extends Model {
                 'blog_post_time',
                 'blog_post_venue',
                 
-                [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE blog_post.id = attend.blog_post_id)'), 'attend_count']
+                [sequelize.literal('(SELECT COUNT(*) FROM upvote WHERE blog_post.id = upvote.blog_post_id)'), 'upvote_count']
               ],
               // include: [
 
-              //   [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE blog_post.id = attend.blog_post_id)'), 'attend_count']
+              //   [sequelize.literal('(SELECT COUNT(*) FROM upvote WHERE blog_post.id = upvote.blog_post_id)'), 'upvote_count']
               // //   {
-              // //       model: models.Player,
+              // //       model: models.Contributor,
               // //       attributes: ['username']
               // //   }
               // ],
               // order: [
-              //   [sequelize.literal('attend_count'), 'DESC']
+              //   [sequelize.literal('upvote_count'), 'DESC']
               // ]
             },
           )
@@ -69,10 +69,10 @@ Blog_Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    player_id: {
+    contributor_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'player',
+        model: 'contributor',
         key: 'id'
       }
     }

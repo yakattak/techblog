@@ -23,7 +23,7 @@ async function loginFormHandler(event) {
             const json = await response.json()
             console.log("zebra", json);
 
-            const id = json.Player.id;
+            const id = json.Contributor.id;
             console.log("lion");
             document.location.replace(`/dashboard?id=${id}`);
         } else {

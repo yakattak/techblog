@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog_Post, Attend, Player } = require('../../models');
+const { Blog_Post, Upvote, Contributor } = require('../../models');
 const withAuth = require('../../utils/auth');
 const sequelize = require('../../config/connection');
 
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects =>   { "blog_post_type": "Baseball", "blog_post_date": "5/25/2022", "blog_post_time": "19:00", "blog_post_venue": "East Side Park", "player_id": 2 },
+  // expects =>   { "blog_post_type": "Baseball", "blog_post_date": "5/25/2022", "blog_post_time": "19:00", "blog_post_venue": "East Side Park", "contributor_id": 2 },
   console.log(req.body);
   Blog_Post.create({
     blog_post_title: req.body.title,
@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
     blog_post_date: req.body.date,
     blog_post_time: req.body.time,
     blog_post_venue: req.body.venue,
-    player_id: req.session.player_id,
+    contributor_id: req.session.contributor_id,
   })
     .then(dbBlog_PostData => res.json(dbBlog_PostData))
     .catch(err => {
@@ -52,12 +52,12 @@ router.delete('/:id', (req, res) => {
 });
 
 
-router.put('/attend', withAuth, (req, res) => {
+router.put('/upvote', withAuth, (req, res) => {
 
     // custom static method created in models/Blog_Post.js
-    Blog_Post.attend({...req.body, player_id: req.session.player_id}, { Blog_Post, Attend, Player })
+    Blog_Post.upvote({...req.body, contributor_id: req.session.contributor_id}, { Blog_Post, Upvote, Contributor })
 
-      .then(updatedAttendData => res.json(updatedAttendData))
+      .then(updatedUpvoteData => res.json(updatedUpvoteData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);

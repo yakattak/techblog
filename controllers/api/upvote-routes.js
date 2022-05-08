@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Player, Blog_Post, Attend } = require('../../models');
+const { Contributor, Blog_Post, Upvote } = require('../../models');
 
 // router.post('/login', (req, res) => {
 //     console.log(req.body);
@@ -11,10 +11,10 @@ const { Player, Blog_Post, Attend } = require('../../models');
 //     res.json('signup info');
 // });
 
-// get all Attend
+// get all Upvote
 router.get('/', (req, res) => {
-  Attend.findAll()
-    .then(dbAttendData => res.json(dbAttendData))
+  Upvote.findAll()
+    .then(dbUpvoteData => res.json(dbUpvoteData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

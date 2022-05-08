@@ -1,19 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Attend extends Model {}
+class Upvote extends Model {}
 
-Attend.init(
+Upvote.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    player_id: {
+    contributor_id: {
       type: DataTypes.INTEGER,
         references: {
-        model: 'player',
+        model: 'contributor',
         key: 'id'
       }
     },
@@ -30,8 +30,8 @@ Attend.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'attend'
+    modelName: 'upvote'
   }
 );
 
-module.exports = Attend;
+module.exports = Upvote;

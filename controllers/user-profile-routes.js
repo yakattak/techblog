@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Blog_Post, Player, Attend } = require('../models');
+const { Blog_Post, Contributor, Upvote } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
     Blog_Post.findAll({
         where: {
-            player_id: req.session.player_id
+            contributor_id: req.session.contributor_id
         },
         attributes: [
             'id',
@@ -15,7 +15,7 @@ router.get('/', withAuth, (req, res) => {
             'blog_post_date',
             'blog_post_time',
             'blog_post_venue',
-            [sequelize.literal('(SELECT COUNT(*) FROM attend WHERE blog_post.id = attend.blog_post_id)'), 'attend_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM upvote WHERE blog_post.id = upvote.blog_post_id)'), 'upvote_count']
         ],
 
     })
