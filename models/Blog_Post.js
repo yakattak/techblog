@@ -18,7 +18,6 @@ class Blog_Post extends Model {
                 'blog_post_title',
                 'blog_post_topic',
                 'blog_post_date',
-                'blog_post_time',
                 'blog_post_blogText',
                 
                 [sequelize.literal('(SELECT COUNT(*) FROM upvote WHERE blog_post.id = upvote.blog_post_id)'), 'upvote_count']
@@ -58,10 +57,6 @@ Blog_Post.init(
       allowNull: false
     },
     blog_post_date: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    blog_post_time: {
       type: DataTypes.STRING,
       allowNull: false
     },

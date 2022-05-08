@@ -19,9 +19,8 @@ router.post('/', (req, res) => {
   console.log(req.body);
   Blog_Post.create({
     blog_post_title: req.body.title,
-    blog_post_topic: req.body.type,
+    blog_post_topic: req.body.topic,
     blog_post_date: req.body.date,
-    blog_post_time: req.body.time,
     blog_post_blogText: req.body.blogText,
     contributor_id: req.session.contributor_id,
   })

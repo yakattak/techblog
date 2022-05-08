@@ -2,15 +2,13 @@
 <article class="">
     <div class="blog_post-title">{{blog_post_title}}</div>
     <div class="">
-        Blog_Post Type: {{blog_post_topic}}
+        Blog Post Topic: {{blog_post_topic}}
         <br>
-        Blog_Post Date: {{blog_post_date}}
+        Blog Post Date: {{blog_post_date}}
         <br>
-        Blog_Post Time: {{blog_post_time}}
+        Blog post Text: {{blog_post_blogText}}
         <br>
-        Location: {{blog_post_blogText}}
-        <br>
-        There are {{upvote_count}} contributors showing up
+        There are {{upvote_count}} users who liked this post
         <br>
         <button type="button" class="upvote-btn" onclick="upvoteClickHandler(event)">Upvote Blog_Post <span class="id-span" id="blog_post-id-{{id}}" data-id="{{id}}">{{id}}</span></button>
         {{!-- Post created by {{contributor.username}} on {{format_date created_at}} --}}

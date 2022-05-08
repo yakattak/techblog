@@ -2,9 +2,9 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('#blog_post-title').value;
-    const type = document.querySelector('#blog_post-type').value;
-    const date = document.querySelector('#blog_post-date').value;
-    const time = document.querySelector('#blog_post-time').value;
+    const topic = document.querySelector('#blog_post-topic').value;
+    const date = new Date();
+    //const time = document.querySelector('#blog_post-time').value;
     const blogText = document.querySelector('#blog_post-blogText').value;
 
 
@@ -24,9 +24,8 @@ async function newFormHandler(event) {
         method: 'POST',
         body: JSON.stringify({
             title,
-            type,
+            topic,
             date,
-            time,
             blogText
         }),
         headers: { 'Content-Type': 'application/json' }
