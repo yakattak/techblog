@@ -15,11 +15,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects =>   { "blog_post_type": "Baseball", "blog_post_date": "5/25/2022", "blog_post_time": "19:00", "blog_post_venue": "East Side Park", "contributor_id": 2 },
+  // expects =>   { "blog_post_topic": "Baseball", "blog_post_date": "5/25/2022", "blog_post_time": "19:00", "blog_post_venue": "East Side Park", "contributor_id": 2 },
   console.log(req.body);
   Blog_Post.create({
     blog_post_title: req.body.title,
-    blog_post_type: req.body.type,
+    blog_post_topic: req.body.type,
     blog_post_date: req.body.date,
     blog_post_time: req.body.time,
     blog_post_venue: req.body.venue,

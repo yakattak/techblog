@@ -11,7 +11,7 @@ router.get('/', withAuth, (req, res) => {
         attributes: [
             'id',
             'blog_post_title',
-            'blog_post_type',
+            'blog_post_topic',
             'blog_post_date',
             'blog_post_time',
             'blog_post_venue',

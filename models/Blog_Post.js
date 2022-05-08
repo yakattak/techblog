@@ -16,7 +16,7 @@ class Blog_Post extends Model {
               attributes: [
                 'id',
                 'blog_post_title',
-                'blog_post_type',
+                'blog_post_topic',
                 'blog_post_date',
                 'blog_post_time',
                 'blog_post_venue',
@@ -53,7 +53,7 @@ Blog_Post.init(
       type: DataTypes.STRING(50),
       allowNull: false
     },
-    blog_post_type: {
+    blog_post_topic: {
       type: DataTypes.STRING,
       allowNull: false
     },
